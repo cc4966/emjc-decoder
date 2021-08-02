@@ -73,7 +73,7 @@ EMJC_API int emjc_decode_buffer(uint8_t *__restrict dst_buffer,
     const uint16_t filter_length = height;
     const size_t dst_length = (size_t) height * width + filter_length + (size_t) height * width * 3 + appendix_length;
     uint8_t *dst = (uint8_t *) malloc(dst_length + 1);
-    const size_t len = lzfse_decode_buffer(dst, dst_length + 1, p + 16, data_length - 8 - 16, NULL);
+    const size_t len = lzfse_decode_buffer(dst, dst_length + 1, p + 16, data_length - 16, NULL);
     if ( len != dst_length ) {
         free(dst);
         return -1;
